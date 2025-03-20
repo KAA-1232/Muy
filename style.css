@@ -1,0 +1,905 @@
+:root{
+    --gren-color: #baff61;
+    --dark-green-color: #85b65d;
+    --h1-fond-size:3em;
+    --black-color: #000 ;
+    --bolotnei-color: #788a78;
+    --grei-color: #313131;
+    --belin-collor: #fff;
+    --oranj-color: #FFAA34;
+    --eags-color: #FDF383;
+
+
+    --text-zagolovki: 40px;
+    --text-500-h1: xx-large;
+}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #000;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+/* === Стили для навигации (общий контейнер) === */
+.nav {
+    position: sticky; /* Фиксируем навигацию при прокрутке */
+    top: 0; /* Прилипает к верху экрана */
+    background-color: var(--bolotnei-color); /* Цвет фона */
+    padding: 1.5rem; /* Отступы */
+    z-index: 100; /* Поверх других элементов */
+    border-bottom-left-radius: 50px; /* Скругление углов */
+    border-bottom-right-radius: 50px; /* Скругление углов */
+  }
+  
+  /* === Стили для прокручиваемой области === */
+  .nav-scrollable {
+    overflow-x: auto; /* Включаем прокрутку по умолчанию */
+    -webkit-overflow-scrolling: touch; /* Плавная прокрутка на iOS */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE и Edge */
+  }
+  
+  /* === Скрываем полосу прокрутки === */
+  .nav-scrollable::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
+  /* === Стили для списка (ul) === */
+  nav ul {
+    list-style-type: none; /* Убираем маркеры списка */
+    margin: 0; /* Убираем отступы */
+    padding: 0; /* Убираем отступы */
+    display: flex; /* Используем flexbox */
+    white-space: nowrap; /* Предотвращаем перенос элементов */
+  }
+  
+  /* === Стили для пунктов списка (li) === */
+  nav ul li {
+    margin: 0; /* Убираем отступы */
+    padding: 0 1em; /* Отступы слева и справа */
+  }
+  
+  /* === Стили для ссылок (a) === */
+  nav ul a {
+    color: var(--belin-collor); /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Плавная анимация */
+    font-size: 1.5em; /* Размер шрифта */
+    display: block; /* Чтобы ссылка занимала всю область li */
+  }
+  
+  /* === Стили для ссылок при наведении === */
+  nav ul a:hover {
+    transform: scale(1); /* Убираем увеличение */
+    color: var(--grei-color); /* Цвет текста при наведении */
+  }
+  
+  /* === Стили для инструкции перетаскивания === */
+  .scroll-instruction {
+    text-align: center; /*Текст по цетнтру*/
+    background: rgba(0, 0, 0, 0.7); /* Фон с прозрачностью */
+    color: white; /* Цвет текста */
+    padding: 0.5em 1em; /* Отступы */
+    border-radius: 5px; /* Скругление углов */
+    font-size: 1em; /* Размер шрифта */
+    white-space: nowrap; /* Запрещаем перенос текста */
+    opacity: 0.8; /* Прозрачность */
+    transition: opacity 0.3s ease; /* Плавное появление/исчезновение */
+    margin-top: 10px; /* Отступ сверху */
+    display: none; /* Скрываем инструкцию по умолчанию */
+  }
+  
+  /* === Стили для иконок стрелок в инструкции === */
+  .scroll-instruction i {
+    margin: 0 5px; /* Отступы вокруг иконок */
+  }
+  
+  /* === Адаптация для экранов больше 900px === */
+  @media (min-width: 900px) {
+    .nav-scrollable {
+      overflow-x: visible; /* Отключаем прокрутку */
+    }
+  
+    nav ul {
+      justify-content: space-around; /* Равномерное распределение */
+      white-space: normal; /* Разрешаем перенос элементов */
+      flex-wrap: wrap; /* Разрешаем перенос на новую строку */
+    }
+  
+    nav ul li {
+      flex: 1; /* Равномерное распределение места */
+      text-align: center; /* Выравнивание текста по центру */
+      padding: 0.5em 0; /* Уменьшаем отступы */
+    }
+  }
+  
+  /* === Показываем инструкцию на экранах меньше 900px === */
+  @media (max-width: 899px) {
+    .scroll-instruction {
+      display: block; /* Показываем инструкцию */
+    }
+  }
+
+.conteiner{
+    padding: 10px 40px;
+}
+
+#header {
+    padding: 10px;
+  }
+  
+
+#header .head {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Распределяем элементы по краям */
+    align-items: center; /* Выравниваем элементы по вертикали */
+    flex-wrap: wrap; /* Разрешаем перенос на новую строку, если не помещается */
+  }
+  
+#header .head img {
+    width: 50px; /* Уменьшаем размер иконки */
+    height: auto;
+    margin-right: 10px;
+  }
+  
+#header .head h3 {
+      font-size: clamp(12px, 2vw, 16px); /* Адаптивный размер шрифта */
+      white-space: nowrap; /* Предотвращаем перенос текста */
+      overflow: hidden; /* Скрываем текст, выходящий за границы */
+      text-overflow: ellipsis; /* Добавляем многоточие, если текст не помещается */
+  }
+  
+
+#header .conteiner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивные колонки */
+    grid-gap: 20px;
+    grid-template-columns: 60% 40%;
+    align-items: center; /* Выравнивание по вертикали */
+    padding: 20px;
+  }
+  
+  
+.header-content {
+    text-align: center; /* Центрируем текст */
+  }
+  
+.header-content h1 {
+    font-size: var(--h1-fond-size);
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Переносим длинные слова */
+    overflow-wrap: anywhere; /* Альтернативный способ переноса */
+  }
+
+  
+  
+.header-content h1 span {
+    color: green; /* Замените на нужный цвет */
+}
+  
+.header-content p {
+    font-size: 1.6em;
+    line-height: 1.4;
+  }
+  
+.ava .ava-top {
+    width: 80%; /* Аватарка занимает всю ширину контейнера */
+    height: auto;
+    border-radius: 50%; /* Делаем аватарку круглой */
+    display: block; /* Убираем лишнее пространство под изображением */
+  }
+
+.portfolio-item a {
+    margin-left: 2.5rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    padding: 1rem 2rem;
+    transition: color var(--transition-duration) ease;
+}
+
+.button{
+    background-color: var(--gren-color);
+    padding: 12px 30px;
+    font-size: 32px;
+    color: var(--black-color);
+    text-decoration: none;
+    border-radius: 50px;
+}
+
+.button:hover{
+    background-color: var(--dark-green-color);
+}
+
+.discount .box {
+    display: flex;
+    flex-direction: row; /* По умолчанию располагаем в строчку */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .discount .blocs {
+    flex-basis: 300px;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 30px;
+    box-sizing: border-box;
+    background-color: var(--gren-color);
+    border: 2px solid var(--dark-green-color);
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .discount .blocs:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .discount .blocs p {
+    color: var(--grei-color);
+  }
+  
+  .discount .blocs h3,
+  .discount .blocs p {
+    margin: 0;
+  }
+  
+  .blocs.green {
+    background-color: var(--grei-color);
+    border: 2px solid var(--black-color);
+    color: var(--belin-collor);
+  }
+  
+  .discount .blocs.green h3 {
+    color: var(--gren-color);
+  }
+  
+  .discount .blocs.green p {
+    color: var(--belin-collor);
+  }
+  
+  .discount h1,
+  #contact h1,
+  #process h1,
+  #portfolio h1,
+  .What-can-I-do h1 {
+    text-align: center;
+    font-size: var(--text-zagolovki);
+  }
+
+
+
+
+ 
+/* Общие стили для секции портфолио */
+#portfolio {
+  padding: 40px 0; /* Отступы сверху и снизу секции */
+}
+
+/* Стили для заголовка */
+#portfolio h1 {
+  text-align: center; /* Выравнивание текста по центру */
+  font-size: 2em; /* Размер шрифта (2em = 2x размер шрифта родителя) */
+  margin-bottom: 30px; /* Отступ снизу заголовка */
+}
+
+/* == Стили для текста ссылок (стиль текста отдельно) == */
+.porfolio {
+  display: inline-block; /* Размещаем ссылку как строчный элемент, но с возможностью задавать ширину и высоту */
+  cursor: pointer; /* Меняем курсор на "указатель" при наведении */
+  text-decoration: none; /* Убираем подчеркивание */
+  color: #333; /* Цвет текста */
+  transition: transform 0.3s ease; /* Плавная анимация при наведении */
+  font-size: 0.8em; /*Размер текста*/
+}
+
+/* Стили для ссылки при наведении */
+.porfolio:hover {
+  transform: scale(1.1); /* Увеличение размера при наведении */
+}
+
+/* == Стили для анимации (стиль текста отдельно) == */
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Исходный размер */
+    opacity: 0.8; /* Начальная прозрачность */
+  }
+  50% {
+    transform: scale(1.05); /* Увеличение размера */
+    opacity: 1; /* Полная видимость */
+  }
+  100% {
+    transform: scale(1); /* Возвращаемся к исходному размеру */
+    opacity: 0.8; /* Конечная прозрачность */
+  }
+}
+
+/* === Стили для карусели (основной контейнер) === */
+#portfolio .portfolio-carousel {
+  position: relative; /* Для позиционирования элементов внутри */
+  overflow: hidden; /* Скрываем контент, выходящий за границы */
+  padding: 20px; /* Отступы внутри карусели */
+}
+
+/* === Стили для трека (контейнер с элементами) === */
+#portfolio .portfolio-track {
+  display: flex; /* Размещаем элементы в строку */
+  transition: transform 0.5s ease; /* Плавная анимация при перетаскивании */
+}
+
+/* === Стили для отдельного элемента карусели === */
+#portfolio .portfolio-item {
+  flex: 0 0 auto; /* Не сжимается, не растягивается, авто размер */
+  width: calc(33.333% - 20px); /* Три элемента в строке, учитывая отступы */
+  max-width: 400px; /* Ограничение ширины элемента */
+  padding: 10px; /* Отступы вокруг элемента */
+  box-sizing: border-box; /* Чтобы padding не увеличивал общую ширину */
+  text-align: center; /* Выравнивание текста по центру */
+}
+
+/* === Стили для изображения === */
+#portfolio .portfolio-item img {
+  max-width: 100%; /* Максимальная ширина изображения (100% от родителя) */
+  height: auto; /* Автоматическая высота (сохранение пропорций) */
+  display: block; /* Убираем лишние отступы под изображением */
+  border-radius: 50px; /* Скругление углов */
+  margin-bottom: 10px; /* Отступ снизу изображения */
+  transition: transform 0.3s ease; /* Плавное масштабирование при наведении */
+}
+
+/* === Увеличение изображения при наведении === */
+#portfolio .portfolio-item img:hover {
+  transform: scale(1.05); /* Увеличение размера при наведении */
+}
+
+
+/* === Стили для инструкции перетаскивания === */
+.drag-instruction {
+    text-align: center; /*Текст по цетнтру*/
+    background: rgba(0, 0, 0, 0.7); /* Фон с прозрачностью */
+    color: white; /* Цвет текста */
+    padding: 0.5em 1em; /* Отступы */
+    border-radius: 5px; /* Скругление углов */
+    font-size: 1em; /* Размер шрифта */
+    white-space: nowrap; /* Запрещаем перенос текста */
+    opacity: 0.8; /* Прозрачность */
+    transition: opacity 0.3s ease; /* Плавное появление/исчезновение */
+      margin-top: 10px;
+  }
+  
+  /* === Стили для иконок стрелок в инструкции === */
+  .drag-instruction i {
+    margin: 0 5px; /* Отступы вокруг иконок */
+  }
+
+/* === Стили для курсора при перетаскивании === */
+.portfolio-carousel.dragging {
+  cursor: grab; /* Курсор в виде "руки" при перетаскивании */
+}
+
+.portfolio-carousel {
+  cursor: pointer; /* Курсор по умолчанию */
+}
+
+/* == Адаптация для маленьких экранов (меньше 768px) == */
+@media (max-width: 768px) {
+  #portfolio h1 {
+    font-size: 1.7em; /* Уменьшаем размер заголовка */
+  }
+
+    #portfolio{
+        padding: px 0 ;
+    }
+
+
+  #portfolio .portfolio-item {
+    width: 80%; /* Два элемента в строке */
+    max-width: none; /* Убираем ограничение ширины */
+  }
+}
+
+/* == Адаптация для очень маленьких экранов (меньше 480px) == */
+@media (max-width: 480px) {
+  #portfolio .portfolio-item {
+    width: 100%; /* Один элемент в строке */
+  }
+  .porfolio {
+    display: inline-block; /* Размещаем ссылку как строчный элемент, но с возможностью задавать ширину и высоту */
+    cursor: pointer; /* Меняем курсор на "указатель" при наведении */
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #333; /* Цвет текста */
+    transition: transform 0.3s ease; /* Плавная анимация при наведении */
+    font-size: 0.5em; /*Размер текста*/
+  }
+}
+
+/* === Скрываем прокрутку и инструкцию на экранах больше 900px === */
+@media (min-width: 900px) {
+  #portfolio .portfolio-carousel {
+    overflow: hidden; /* Скрываем прокрутку */
+  }
+    #portfolio .portfolio-track {
+      overflow: hidden; /* Скрываем прокрутку */
+    }
+
+  .drag-instruction {
+    display: none; /* Скрываем инструкцию */
+  }
+}
+
+/* === Показываем инструкцию на экранах меньше 900px === */
+@media (max-width: 899px) {
+  .drag-instruction {
+    display: block; /* Показываем инструкцию */
+  }
+}
+
+
+
+.What-can-I-do{
+    background-color: var(--eags-color);
+    text-align: center;
+    color: var(--grei-color);
+    padding-bottom: 30px;
+    border-radius: 50px;
+}
+
+.What-can-I-do h1{
+    color: var(--black-color);
+}
+
+.What-can-I-do p{
+    font-size: 1.6em;
+}
+
+.What-can-I-do a{
+    background-color: var(--oranj-color);
+}
+
+.What-can-I-do a:hover{
+    background-color: var(--oranj-color);
+}
+
+.process1 {
+    padding: var(80px 0);
+}
+
+.process1 ol {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-left: 0;
+    list-style-position: inside;
+    counter-reset: step-counter;
+    list-style: none;
+}
+
+.process1 li {
+    margin-bottom: 30px;
+    font-size: 1.3rem;
+    position: relative;
+    padding-left: 55px;
+}
+
+.process1 li::before {
+    content: counter(step-counter);
+    counter-increment: step-counter;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-primary);
+    color: rgb(0, 0, 0);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 700;
+    transition: background-color var(0.6s) ease, transform var(0.6s) ease;
+    background: rgb(126, 247, 102)
+}
+
+.process1 li:hover::before {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.process1 li strong{
+    color: rgb(0, 0, 0);
+}
+
+/* Общие стили */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Общие секции */
+#calculator,
+#contact {
+  padding: 60px 0; /* Предполагаемое значение для var(--section-padding) */
+}
+
+/* Calculator */
+#calculator form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#calculator label {
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgb(0, 0, 0); /* Предполагаемое значение для var(--color-text) */
+  text-align: left;
+}
+
+#calculator select {
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ddd; /* Предполагаемое значение для var(--color-grey-light) */
+  border-radius: 5px; /* Предполагаемое значение для var(--border-radius) */
+  font-size: 1rem;
+  transition: border-color 0.3s ease; /* Предполагаемое значение для var(--transition-duration) */
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); /* Стрелочка */
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 20px;
+  padding-right: 30px;
+}
+
+#calculator select:focus {
+  border-color: rgb(176, 255, 160); /* Предполагаемое значение для var(--color-primary) */
+  outline: none;
+}
+
+#calculator #result {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Contact */
+#contact form {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#contact input,
+#contact textarea {
+  margin-bottom: 25px;
+  padding: 15px;
+  border: 1px solid #ddd; /* Предполагаемое значение для var(--color-grey-light) */
+  border-radius: 5px; /* Предполагаемое значение для var(--border-radius) */
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease; /* Предполагаемое значение для var(--transition-duration) */
+  color: rgb(0, 0, 0); /* Предполагаемое значение для var(--color-text) */
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border-color: rgb(176, 255, 160); /* Предполагаемое значение для var(--color-primary) */
+  outline: none;
+}
+
+/* Footer */
+#footer {
+  background-color: #3f3f3f;
+  color: rgb(255, 255, 255); /* Предполагаемое значение для var(--color-white) */
+  text-align: center;
+  padding: 35px 0;
+  font-size: 1.05rem;
+}
+
+#footer a {
+  color: rgb(255, 255, 255); /* Предполагаемое значение для var(--color-white) */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Предполагаемое значение для var(--transition-duration) */
+}
+
+#footer a:hover {
+  color: rgb(209, 255, 209) /* Предполагаемое значение для var(--color-primary) */
+}
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgb(126, 247, 102); /* Предполагаемое значение для var(--color-primary) */
+  color: rgb(0, 0, 0); /* Предполагаемое значение для var(--color-white) */
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 42px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 999;
+  aria-label: "Вернуться к началу страницы";
+}
+
+#scrollToTopBtn:hover {
+  background-color: rgb(126, 247, 102); /* Пример hover цвета */
+  transform: translateY(-3px);
+}
+
+#scrollToTopBtn:focus {
+  outline: 2px solid rgb(126, 247, 102); /* Предполагаемое значение для var(--color-primary) */
+  outline-offset: 2px;
+}
+
+@media (max-width: 1000px){
+
+    #header .conteiner {
+        grid-template-columns: 1fr; /* Одна колонка */
+      }
+    
+      .discount .box {
+        flex-direction: column; /* Размещаем элементы в столбик */
+        align-items: center; /* Центрируем элементы по горизонтали */
+        padding: 0 50px; /* Увеличиваем отступы слева и справа */
+      }
+    
+      .discount .blocs {
+        width: 100%; /* Каждый блок занимает всю доступную ширину */
+        max-width: 800px; /* Ограничиваем ширину блоков */
+        margin-bottom: 30px; /* Увеличиваем отступ снизу */
+      }
+
+    .ava {
+        text-align: center; /* Центрируем содержимое родителя (включая аватарку) */
+      }
+      
+    .ava .ava-top {
+        width: 80%;
+        height: auto;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto; /*  Центрируем горизонтально */
+    }
+    
+    .discount .box {
+        flex-direction: column; /* Размещаем элементы в столбик */
+        align-items: center; /* Центрируем элементы по горизонтали */
+        padding: 0 50px; /* Увеличиваем отступы слева и справа */
+      }
+    
+    .discount .blocs {
+        width: 100%; /* Каждый блок занимает всю доступную ширину */
+        max-width: 800px; /* Ограничиваем ширину блоков */
+        margin-bottom: 30px; /* Увеличиваем отступ снизу */
+      }
+}
+
+@media (max-width: 900px){
+    .discount .box {
+        flex-direction: column; /* Располагаем в столбик */
+        align-items: center; /* Центрируем по горизонтали */
+      }
+    
+      .discount .blocs {
+        aspect-ratio: 1 / 1; /* Сохраняем пропорции 1:1 (квадрат) */
+        flex-grow: 1;
+        flex-basis: auto;  /* Убираем начальный размер */
+        width: 80%;       /* Занимаем всю ширину контейнера */
+        max-width: 600px; /* Ограничиваем максимальную ширину */
+        margin: 10px auto;  /* Автоматические отступы по бокам */
+        font-size: 2em;
+      }
+}
+
+@media (max-width: 800px){
+    #portfolio h1 {
+        font-size: 1.7em;
+      }
+    
+      #portfolio .portfolio-item {
+        width: 80%; /* Два элемента на маленьких экранах */
+        max-width: none;
+      }
+    
+}
+
+@media (max-width: 700px){
+    .discount .blocs{
+        font-size: 1.7em;
+    }
+    
+}
+
+@media (max-width: 600px){
+    .What-can-I-do{
+        background-color: var(--eags-color);
+        text-align: center;
+        color: var(--grei-color);
+        padding-bottom: 30px;
+        border-radius: 40px;
+    }
+    
+    .What-can-I-do h1{
+        color: var(--black-color);
+        font-size: xx-large;
+    }
+    
+    .What-can-I-do p{
+        font-size: 1.3em;
+    }
+    
+    
+    .nav {
+        position: sticky;
+        top: 0;
+        background-color: var(--bolotnei-color);
+        padding: 0.8rem;
+        z-index: 100;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+
+    .discount .blocs {
+        aspect-ratio: 1 / 1; /* Сохраняем пропорции 1:1 (квадрат) */
+        flex-grow: 1;
+        flex-basis: auto;  /* Убираем начальный размер */
+        width: 100%;       /* Занимаем всю ширину контейнера */
+        max-width: 600px; /* Ограничиваем максимальную ширину */
+        margin: 10px auto;  /* Автоматические отступы по бокам */
+        font-size: 1.3em;
+      }
+    
+}
+
+@media (max-width: 500px){
+    .What-can-I-do{
+        background-color: var(--eags-color);
+        text-align: center;
+        color: var(--grei-color);
+        padding-bottom: 30px;
+        border-radius: 40px;
+    }
+    
+    .What-can-I-do h1{
+        color: var(--black-color);
+        font-size: 1em;
+    }
+    
+    .What-can-I-do p{
+        font-size: 1em;
+    }
+
+    .button {
+        background-color: var(--gren-color);
+        padding: 12px 30px;
+        font-size: 22px;
+        color: var(--black-color);
+        text-decoration: none;
+        border-radius: 50px;
+    }
+
+    .discount h1,
+    #contact h1,
+     #process h1,
+    #portfolio h1,
+    .What-can-I-do h1 {
+    text-align: center;
+    font-size: var(--text-500-h1);
+  }
+    .header-content h1 {
+        font-size: var(--text-500-h1);
+        margin-bottom: 10px;
+        word-wrap: break-word; /* Переносим длинные слова */
+        overflow-wrap: anywhere; /* Альтернативный способ переноса */
+      }
+    
+      
+      
+    .header-content h1 span {
+        color: green; /* Замените на нужный цвет */
+    }
+      
+    .header-content p {
+        font-size: 1em;
+        line-height: 1.4;
+      }
+
+    #portfolio .portfolio-item {
+        width: 100%; /* Один элемент на очень маленьких экранах */
+    }
+
+    #portfolio .portfolio-item a{
+        font-size: xx-large;
+    }
+      
+    
+}
+
+@media (max-width: 400px){
+    .portfolio-item a {
+        margin-left: 2.5rem;
+        text-align: center;
+        text-decoration: none;
+        font-size: 0px;
+        color: rgb(0, 0, 0);
+        padding: 1rem 2rem;
+        transition: color var(--transition-duration) ease;
+    }
+
+    .What-can-I-do{
+        background-color: var(--eags-color);
+        text-align: center;
+        color: var(--grei-color);
+        padding-bottom: 30px;
+        border-radius: 30px;
+    }
+    
+    .What-can-I-do h1{
+        color: var(--black-color);
+        font-size: 1.4em;
+    }
+    
+    .What-can-I-do p{
+        font-size: 1em;
+    }
+
+    .nav {
+        position: sticky;
+        top: 0;
+        background-color: var(--bolotnei-color);
+        padding: 0.5rem;
+        z-index: 100;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    nav ul a {
+        color: var(--belin-collor);
+        text-decoration: none;
+        transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+        font-size: 1em;
+        display: block;
+      }
+
+    .discount .box {
+        flex-direction: column; /* Располагаем в столбик */
+        align-items: center; /* Центрируем по горизонтали */
+        padding: 0px;
+      }
+    .discount .blocs {
+        aspect-ratio: 1 / 1; /* Сохраняем пропорции 1:1 (квадрат) */
+        flex-grow: 1;
+        flex-basis: auto;  /* Убираем начальный размер */
+        width: 100%;       /* Занимаем всю ширину контейнера */
+        max-width: 1000px; /* Ограничиваем максимальную ширину */
+        margin: 10px auto;  /* Автоматические отступы по бокам */
+        font-size: 1.3em;
+      }
+}
+

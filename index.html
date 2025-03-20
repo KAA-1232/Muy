@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КАА | Создание сайтов на заказ</title>
+    <meta name="description" content="Закажите создание эффективного одностраничного сайта (Landing Page) у опытного мастера. Привлечение клиентов, уникальный дизайн, адаптивность.">
+    <meta name="keywords" content="одностраничный сайт, landing page, заказать сайт, разработка сайта, веб-дизайн, КАА, KAA">
+    <link rel="icon" href="photo\icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+    <script>
+        document.documentElement.className += ' js-loaded';
+    </script>
+</head>
+<body>
+    <div class="nav" id="nav-container">
+        <nav class="conteiner g">
+          <div class="nav-scrollable">
+            <ul>
+              <li><a href="#What-can-I-do">Бонусы</a></li>
+              <li><a href="#discount">Преимущества</a></li>
+              <li><a href="#portfolio">Мои работы</a></li>
+              <li><a href="#process">Этапы работы</a></li>
+              <li><a href="#contact">Онлайн запись</a></li>
+            </ul>
+          </div>
+          <div class="scroll-instruction">
+            Проведите пальцем →
+          </div>
+        </nav>
+      </div>
+    <header id="header">
+        <div class="conteiner">
+            <div id="header-content" class="header-content">
+                <h1>Мастер по созданию сайтов <br><span>Котова Александра</span><br><span class="tel">8 903-440-77-62</span></h1>
+                <p>Создаю эффективные сайты, которые в разы увеличивают доход их обладателям</p>
+                <a href="#contact" class="button pulse-button">Бесплатнуя консультация</a>
+            </div>
+            <div class="ava">
+                <img class="ava-top" src="photo\Фото.png" alt="фото">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="What-can-I-do" class="What-can-I-do">
+            <div class="conteiner">
+                <h1 class="predloj-h1">Получите бонусную услугу!</h1>
+                <p class="predloj-p">Закажите разработку сайта в день консультации и получите в подарок форум для общения с вашими клиентами! Это предложение действительно только в этом месяце.</p>
+                <a href="#contact" class=" button predloj-a">получить бонус</a>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="container">
+              <h1>Мои работы</h1>
+              <div class="portfolio-carousel">
+                <div class="portfolio-track">
+                  <article class="portfolio-item">
+                    <figure>
+                      <img src="photo\188452aaf6be11efb5e4ce140e702b49_1.jpeg" alt="Проект 1: Разработка Landing Page для компании X" loading="lazy">
+                    </figure>
+                    <a href="https://kaa-1232.github.io/Desserts-from-the-Heart/" class="porfolio" aria-label="Портфолио сайт">Десерты для Души</a>
+                  </article>
+                  <article class="portfolio-item">
+                    <figure>
+                      <img src="photo\e5b307f8f6bd11ef9739d60b04329523_1.jpeg" alt="Проект 2: Создание уникального дизайна для компании Z" loading="lazy">
+                    </figure>
+                    <a href="https://kaa-1232.github.io/the-vault/" class="porfolio" aria-label="Портфолио сайт">Свадебное агенство</a>
+                  </article>
+                  <!-- Добавьте больше карточек здесь -->
+                </div>
+                <div class="drag-instruction">
+                  <i class="fas fa-arrow-right"></i> Перетащите для просмотра <i class="fas fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        <section id="discount" class="discount">
+            <div class="conteiner">
+                <h1>Как я помогаю бизнесу расти</h1>
+                <div class="box">
+                    <div class="blocs">
+                        <h3>Эффективность</h3>
+                        <p>Ваш сайт увидят больше нужных людей в поисковых системах (Google, Яндекс), и клиенты чаще будут покупать</p>
+                    </div>
+                    <div class="blocs green">
+                        <h3>Уникальный дизайн</h3>
+                        <p>Анимирую неповторимый дизайн , используя современные тренды</p>
+                    </div>
+                    <div class="blocs">
+                        <h3>Адаптивность</h3>
+                        <p>Сайт отлично выглядит на любых устройствах благодаря адаптивности</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="process1">
+            <div class="container">
+                <h1>Как я работаю</h1>
+                <ol>
+                    <li><strong>Анализ:</strong> Анализируем вашу целевую аудиторию и конкурентов, определяем ключевые показатели эффективности (KPI).</li>
+                    <li><strong>Создание прототипа и дизайн:</strong> Создаю прототип сайта, разрабатываю дизайн-концепцию, утверждаю макеты.</li>
+                    <li><strong>Разработка:</strong> Выполняю адаптивную вёрстку, интегрирую систему управления контентом (CMS), настраиваю аналитику.</li>
+                    <li><strong>Тестирование и запуск:</strong> Провожу тестирование сайта на разных устройствах и браузерах, запускаю сайт на хостинге, предоставляю инструкции по управлению контентом.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h1>Получите бесплатную консультацию</h1>
+                <form action="https://formspree.io/f/xnnjkkay" method="POST">  <!-- Замените на свой ID -->
+                    <input type="text" id="name" name="name" placeholder="Ваше имя" required autocomplete="name">
+                    <input type="email" id="email" name="email" placeholder="Ваш email" required autocomplete="email">
+                    <textarea id="message" name="message" placeholder="Сообщение" rows="5" required></textarea>
+                    <input type="hidden" name="_subject" value="Новое сообщение с вашего сайта">  <!-- Замените на URL вашей страницы благодарности -->
+                    <button type="submit" class="button">Отправить</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+    <footer id="footer">
+        <div class="container">
+            <p>&copy; 2025 Мастер Сайтов | <a href="tel:8 903-440-77-62" aria-label="Позвонить нам">+7 (903) 440-77-62</a> | <a href="mailto:kaa.website.quality@gmail.com" aria-label="Написать нам письмо">kaa.website.quality@gmail.com</a></p>
+        </div>
+    </footer>
+<script src="main.js"></script>
+    
+</body>
+</html>
